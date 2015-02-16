@@ -1,0 +1,29 @@
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width: {{(tests.status.passed / tests.status.total) * 100}}%"></div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: {{((tests.status.total - tests.status.failed - tests.status.passed) / tests.status.total) * 100}}%"></div>
+    <div class="progress-bar progress-bar-danger" style="width: {{(tests.status.failed / tests.status.total) * 100}}%"></div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Audience</th>
+                <th>URL</th>
+                <th colspan="2">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="test in tests.data | filter:query as results" class="{{test.passed == false || test.passed == true ? (test.passed ? 'success' : 'danger') : ''}}">
+                <td>{{test.name}}</td>
+                <td>{{test.audience}}</td>
+                <td><a href="{{test.url}}" target="_blank">{{test.url}}</a></td>
+                <td>{{test.desc}}</td>
+                <td><a href="#/tests/{{test.id}}" class="btn btn-default">Edit</a></td>
+            </tr>
+            <tr ng-if="results.length == 0">
+                <td colspan="5">No results!</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
