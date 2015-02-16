@@ -1,0 +1,17 @@
+{ 
+    "tests" : {
+        "data" :
+            [
+                {
+                    "name": "Testing homepage",
+                    "url": "http://bearcodi.io",
+                    "desc": "Check if the homepage loads",
+                    "audience": "external",
+                    "id" : 1
+                },
+            ],
+        "status" : {}
+    },
+    "users" : [
+    ]
+}
