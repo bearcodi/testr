@@ -1,0 +1,35 @@
+<form action="#">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" ng-model="item.name" />
+    </div>
+
+    <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" id="url" class="form-control" ng-model="item.url">
+    </div>
+
+    <div class="form-group">
+        <label for="tested">Tested date</label>
+        <input type="date" id="tested" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="audience">Audience</label>
+        <select id="audience" class="form-control" ng-model="item.audience">
+            <option value="" selected>Please select...</option>
+            <option ng-repeat="audience in audiences" value="{{audience}}">{{audience}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+        <button class="btn btn-danger disabled"><span class="glyphicon glyphicon-exclamation-sign"></span></button>
+    </div>
+    <div class="form-group">
+        <label for="desc">Description</label>
+        <textarea name="" id="desc" cols="30" rows="5" class="form-control" ng-model="item.desc"></textarea>
+    </div>
+
+    <div class="form-group">
+        <input type="button" class="btn btn-success" value="save" ng-click="update(item)"/>
+    </div>
+</form>
